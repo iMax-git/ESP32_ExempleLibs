@@ -1,0 +1,43 @@
+{
+    "version": 1,
+    "author": "Jan De Rudder",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-s2-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": 44.6,
+        "left": -124.8,
+        "attrs": { "color": "black", "bounce": "1" }
+      },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn2",
+        "top": 131,
+        "left": -124.8,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 177.6,
+        "left": -48.55,
+        "rotate": 90,
+        "attrs": { "value": "200" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "btn1:1.r", "esp:GND.2", "black", [ "v-67.2", "h182.6" ] ],
+      [ "esp:27", "btn2:1.r", "blue", [ "h0" ] ],
+      [ "btn2:2.r", "esp:3V3", "red", [ "h9.8", "v67.4", "h96", "v-206.89" ] ],
+      [ "r1:1", "esp:27", "blue", [ "h0", "v-9.6" ] ],
+      [ "esp:1", "btn1:2.r", "green", [ "h-33.83", "v34.09" ] ],
+      [ "esp:2", "r1:1", "green", [ "h0" ] ],
+      [ "esp:2", "btn2:1.r", "green", [ "h-24.23", "v91.69" ] ],
+      [ "esp:GND.1", "r1:2", "black", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
